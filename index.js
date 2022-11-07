@@ -15,7 +15,7 @@ const server=http.createServer((req,res)=>{
     let filePath='';
     //join path
     filePath = path.join(__dirname, req.url==='/' ?
-    'index.html' : req.url);
+    'index.html' : req.url+'.html');
     
     // Read relevant file
   
