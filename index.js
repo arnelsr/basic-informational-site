@@ -9,9 +9,11 @@ const http=require('http');
 const path=require('path');
 const fs=require('fs');
 
-//create server
-
-const server=http.createServer((req,res)=>{
+const express = require("express");
+const app = express();
+const port = 8080;
+//express
+app.get("/*", function (req, res) {
     let filePath='';
     //join path
     filePath = path.join(__dirname, req.url==='/' ?
@@ -39,8 +41,11 @@ const server=http.createServer((req,res)=>{
         res.writeHead(200,{'Content-Type':'text/html'});
         res.end(content,'utf8');
     }
-   });
-
+  });
+  
 });
-const PORT=8080;
-server.listen(PORT,()=>console.log(`Server running on port ${PORT}`));
+
+app.listen(port, function () {
+    console.log(`Example app listening on port ${port}!`);
+});
+
